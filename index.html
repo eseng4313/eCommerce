@@ -1,0 +1,113 @@
+ <!doctype html>
+<html>
+    <head>
+        <title> hi </title>
+        <style>
+            img{
+                width:200px;
+                
+            }
+            div{
+                background-color:orange;
+                width: 200px;
+                
+            }
+
+            body {
+                background-image: url("background1.png");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-position: center; 
+               
+            }
+            .icons{
+                display:inline-block;
+                width: 64px; 
+                height: 64px;
+            }
+            
+        </style>
+        <script>
+
+            function numSum(){
+                var qty1 = parseFloat(document.getElementById("qty1").value);
+                var qty2= parseFloat(document.getElementById("qty2").value);
+                var qty3= parseFloat(document.getElementById("qty3").value);
+                var pr1= 10;
+                var pr2= 7;
+                var pr3= 14;
+                var cs = (qty1*pr1)+(qty2*pr2)+(qty3*pr3);
+
+                var wpr1 = 8;
+                var wpr2 = 5;
+                var wpr3 = 14;
+                var cos = (qty1*wpr1)+(qty2*wpr2)+(qty3*wpr3);
+                var pr = cs-cos;
+                var tr =.0874
+                var t = cs*tr
+                t.toFixed(2);   
+                var its =qty1 + qty2 + qty3;
+
+
+                if (cs <100){
+                    var s = 25
+                
+                }else if(cs > 100 && cs< 200){
+                    s = 10
+                    
+                }else{
+                    s = 0
+                }
+
+                var cst = cs + t + s;
+                cst.toFixed(2);   
+                var cus= document.getElementById("customer");
+                var com= document.getElementById("company");
+
+                var build="";
+                build+="CUSTOMER INFO :<br>"
+                build+="subtotal :"+ cs +"<br>"
+                build+="Tax :"+ t +"<br>"
+                build+="Shipping&Handling :"+ s +"<br>"
+                build+="Customer total :"+ cst +"<br>"
+                cus.innerHTML= build;
+
+                var build1="";
+                build1+="COMPANY INFO :<br>"
+                build1+="items sold :"+ its +"<br>"
+                build1+="customer subtotal :"+ cs +"<br>"
+                build1+="company subtotal :"+ cos +"<br>"
+                build1+="profit :"+ pr +"<br>"
+                com.innerHTML= build1;
+            }
+//putting value in div
+                
+//if statements
+        </script>
+    </head>
+    <body>
+        <h1>MYSTERY STORE</h1>
+        <img src="picture1.jpg">
+        <p> <h3>This could be your trump card in yugioh<br>
+        price $10</h3> </p>
+        <input type="text" id="qty1" placeholder="Enter amount">
+        <br>
+        
+        <img src ="pic2.jpg">
+        <p><h3>These cupcakes are the sh*t<br>
+        price $7</h3></p>
+        <input type="text" id="qty2" placeholder="Enter a number">
+        <br>
+
+        <img src ="a5.jpg">
+        <p> <h3>The best looking car with a cheap price<br>
+        price $14</h3><p>
+        <input type="text" id="qty3" placeholder="Enter a number">
+        <br>
+
+        <button onclick="numSum()">SHOW RESULT</button>
+        <div id="customer"> </div>
+        <br>
+        <div id ="company"> </div>
+    </body>
+</html>
